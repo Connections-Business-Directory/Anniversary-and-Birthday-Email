@@ -68,14 +68,14 @@ Here are some great **free extensions** (with more on the way) that enhance your
 = Using the WordPress Plugin Search =
 
 1. Navigate to the `Add New` sub-page under the Plugins admin page.
-2. Search for `connections business directory anniversary and birthday email`.
+2. Search for `connections business directory anniversary and birthday emails`.
 3. The plugin should be listed first in the search results.
 4. Click the `Install Now` link.
 5. Lastly click the `Activate Plugin` link to activate the plugin.
 
 = Uploading in WordPress Admin =
 
-1. [Download the plugin zip file](https://wordpress.org/plugins/connections-business-directory-anniversary-and-birthday-email/) and save it to your computer.
+1. [Download the plugin zip file](https://wordpress.org/plugins/connections-business-directory-anniversary-and-birthday-emails/) and save it to your computer.
 2. Navigate to the `Add New` sub-page under the Plugins admin page.
 3. Click the `Upload` link.
 4. Select Connections Business Directory Facilities zip file from where you saved the zip file on your computer.
@@ -84,7 +84,7 @@ Here are some great **free extensions** (with more on the way) that enhance your
 
 = Using FTP =
 
-1. [Download the plugin zip file](https://wordpress.org/plugins/connections-business-directory-anniversary-and-birthday-email/) and save it to your computer.
+1. [Download the plugin zip file](https://wordpress.org/plugins/connections-business-directory-anniversary-and-birthday-emails/) and save it to your computer.
 2. Extract the Connections Business Directory Facilities zip file.
 3. Create a new directory named `connections-business-directory-anniversary-and-birthday-email` directory in the `../wp-content/plugins/` directory.
 4. Upload the files from the folder extracted in Step 2.
