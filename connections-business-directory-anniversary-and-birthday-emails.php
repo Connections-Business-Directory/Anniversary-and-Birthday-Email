@@ -886,7 +886,7 @@ HEREDOC;
 			$to   = $self->getEntryEmailAddress( $entry );
 			$body = cnSettingsAPI::get( 'connections_aabe', 'message' );
 
-			$self->log( 'Send entry email!' );
+			$self->log( "Send entry {$type} email!" );
 
 			// Make sure we have enough info to send the email.
 			if ( empty( $from['email'] ) || empty( $from['name'] ) ||
@@ -894,7 +894,7 @@ HEREDOC;
 			     empty( $from['subject'] ) || empty( $body[ "{$type}_message" ] )
 			) {
 
-				$self->log( 'Required email addresses, subject and body missing.' );
+				$self->log( 'Required email addresses, subject or body missing, no email will be sent.' );
 
 				return FALSE;
 			}
@@ -967,7 +967,7 @@ HEREDOC;
 			     empty( $notification['subject'] ) || empty( $notification['message'] )
 			) {
 
-				$self->log( 'Required email addresses, subject and body missing.' );
+				$self->log( 'Required email addresses, subject or body missing, no email will be sent.' );
 
 				return FALSE;
 			}
