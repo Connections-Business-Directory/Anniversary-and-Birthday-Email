@@ -1171,96 +1171,6 @@ HEREDOC;
 		}
 
 		/**
-		 * Override function for @see wp_mail() which will log the email as a file instead of sending it.
-		 *
-		 * Used only for development and debugging.
-		 *
-		 * @access private
-		 * @since  1.0
-		 *
-		 * @param        $to
-		 * @param        $subject
-		 * @param        $message
-		 * @param string $headers
-		 * @param array  $attachments
-		 *
-		 * @return bool
-		 */
-		public function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
-
-			require_once ABSPATH . WPINC . '/class-phpmailer.php';
-
-			$self = self::instance();
-			$time = current_time( 'mysql' );
-			$data = compact( 'to', 'subject', 'message', 'headers', 'attachments', 'time' );
-
-			$validEmails   = [];
-			$invalidEmails = [];
-
-			//$self->log( $to );
-
-			$recipients = is_array( $to ) ? $to : explode( ',', $to );
-
-			foreach ( $recipients as $recipient ) {
-				if ( PHPMailer::validateAddress( $recipient ) )
-					$validEmails[] = $recipient; else
-					$invalidEmails[] = $recipient;
-			}
-
-			$fileName = $self->getUploadDir( FALSE ) . microtime( TRUE ) . '.json';
-
-			// @todo: not happy with doing the same thing 2x. Should write that to a separate method
-			if ( count( $validEmails ) ) {
-				$data['to'] = implode( ',', $validEmails );
-				$handle     = @fopen( $fileName, "w" );
-				if ( ! $handle )
-					return FALSE;
-				fwrite( $handle, json_encode( $data, 128 ) );
-				fclose( $handle );
-			}
-			if ( count( $invalidEmails ) ) {
-				$data['to'] = implode( ',', $invalidEmails );
-				$handle     = @fopen( $fileName, "w" );
-				if ( ! $handle )
-					return FALSE;
-				fwrite( $handle, json_encode( $data, 128 ) );
-				fclose( $handle );
-			}
-
-			return TRUE;
-		}
-
-		/**
-		 * Creates upload dir if it not existing.
-		 * Adds .htaccess protection to upload dir.
-		 *
-		 * @access private
-		 * @since  1.0
-		 *
-		 * @param bool $invalid
-		 *
-		 * @return string upload dir
-		 */
-		public function getUploadDir( $invalid = FALSE ) {
-
-			$subfolder = $invalid ? 'invalid/' : '';
-			$dir       = wp_upload_dir()['basedir'] . '/smtp-mailing-queue/';
-			$created   = wp_mkdir_p( $dir );
-			if ( $created ) {
-				$handle = @fopen( $dir . '.htaccess', "w" );
-				fwrite( $handle, 'DENY FROM ALL' );
-				fclose( $handle );
-			}
-
-			if ( $invalid ) {
-				$dir = $dir . $subfolder;
-				wp_mkdir_p( $dir );
-			}
-
-			return $dir;
-		}
-
-		/**
 		 * Callback for the plugin activation hook.
 		 *
 		 * @access private
@@ -1361,18 +1271,6 @@ HEREDOC;
 
 				error_log( var_export( $message, TRUE ) );
 			}
-		}
-	}
-
-	// overwriting wp_mail() to store mailing data instead of sending immediately
-	if ( ! function_exists( 'wp_mail' ) && Connections_Anniversary_and_Birthday_Emails::LOG ) {
-
-		function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
-
-			/** @var Connections_Anniversary_and_Birthday_Emails $instance */
-			$instance = Connections_Anniversary_and_Birthday_Emails();
-
-			return $instance->wp_mail( $to, $subject, $message, $headers, $attachments );
 		}
 	}
 
