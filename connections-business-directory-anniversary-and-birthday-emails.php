@@ -1302,7 +1302,7 @@ HEREDOC;
 
 			if ( FALSE === wp_next_scheduled( 'cn-aabe-hourly-event' ) ) {
 
-				$date = new DateTime( 'now', self::getDateTimeZone() );
+				$date = new DateTime( 'now', cnDate::getWPTimezone() );
 
 				/**
 				 * Round up to the next hour.
@@ -1330,7 +1330,7 @@ HEREDOC;
 				 * Schedule once daily at midnight.
 				 * @link https://wordpress.stackexchange.com/a/223341
 				 */
-				$date = new DateTime( 'tomorrow', self::getDateTimeZone() );
+				$date = new DateTime( 'tomorrow', cnDate::getWPTimezone() );
 
 				wp_schedule_event(
 					$date->getTimestamp(),
@@ -1338,32 +1338,6 @@ HEREDOC;
 					'cn-aabe-daily-event'
 				);
 			}
-		}
-
-		/**
-		 * Get DateTimeZone object based on WP settings.
-		 *
-		 * @link https://wordpress.stackexchange.com/a/283094
-		 * @link https://stackoverflow.com/a/41403802/5351316
-		 *
-		 * @access public
-		 * @since  1.0
-		 * @static
-		 */
-		public static function getDateTimeZone() {
-
-			$timezone_string = get_option( 'timezone_string' );
-
-			if ( ! empty( $timezone_string ) ) {
-				return new DateTimeZone( $timezone_string );
-			}
-
-			$min    = 60 * get_option( 'gmt_offset' );
-			$sign   = $min < 0 ? '-' : '+';
-			$absmin = abs( $min );
-			$offset = sprintf( '%s%02d%02d', $sign, $absmin / 60, $absmin % 60 );
-
-			return new DateTimeZone( $offset );
 		}
 
 		/**
