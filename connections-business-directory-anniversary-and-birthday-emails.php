@@ -32,7 +32,7 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 	final class Connections_Anniversary_and_Birthday_Emails {
 
 		const VERSION = '1.0';
-		const LOG     = TRUE;
+		const LOG     = FALSE;
 
 		/**
 		 * Stores the instance of this class.
