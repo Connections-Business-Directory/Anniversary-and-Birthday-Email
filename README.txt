@@ -96,12 +96,11 @@ None yet...
 
 == Screenshots ==
 
-@todo Update Screenshots.
-
-1. Add new business facility admin page.
-2. Assign facilities to business directory listing.
-3. Facility Content Block.
-4. Facility widget display.
+1. Option to send anniversary or birthday emails or both.
+2. Configurable admin notification of when an anniversary or birthday email has been sent.
+3. Configurable recipient email for anniversary and birthday.
+4. The email template tags which can be used in all emails subjects and message bodies so you can customize the message for the recipient.
+5. A few advanced email settings options.
 
 == Changelog ==
 
