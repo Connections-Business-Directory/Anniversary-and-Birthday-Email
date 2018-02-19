@@ -1105,7 +1105,7 @@ HEREDOC;
 				<li><code>%fullname%</code> — Will be replaced with the entry's full name.</li>
 				<li><code>%firstname%</code> — Will be replaced with the entry's first name.</li>
 				<li><code>%lastname%</code> — Will be replaced with the entry's last name.</li>
-				<li><code>%unsubscribe%</code> — Will be replaced with the unsubscibe link.</li>
+				<li><code>%unsubscribe%</code> — Will be replaced with the unsubscribe link.</li>
 			</ul>
 			<?php
 		}
