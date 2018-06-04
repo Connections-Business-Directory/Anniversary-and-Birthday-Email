@@ -104,7 +104,11 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 				 * This should run on the `plugins_loaded` action hook. Since the extension loads on the
 				 * `plugins_loaded` action hook, load immediately.
 				 */
-				cnText_Domain::create( 'connections-business-directory-anniversary-and-birthday-emails' )->load();
+				cnText_Domain::register(
+					'connections-business-directory-anniversary-and-birthday-emails',
+					$self->basename,
+					'load'
+				);
 
 				$self->addCronEvents();
 			}
