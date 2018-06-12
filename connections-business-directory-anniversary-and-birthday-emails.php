@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Business Directory Anniversary and Birthday Emails
  * Plugin URI:        https://connections-pro.com/documentation/anniversary-and-birthday-emails/
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
- * Version:           1.0
+ * Version:           1.0.1
  * Author:            Steven A. Zahm
  * Author URI:        http://connections-pro.com
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 
 	final class Connections_Anniversary_and_Birthday_Emails {
 
-		const VERSION = '1.0';
+		const VERSION = '1.0.1';
 		const LOG     = FALSE;
 
 		/**
@@ -104,7 +104,11 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 				 * This should run on the `plugins_loaded` action hook. Since the extension loads on the
 				 * `plugins_loaded` action hook, load immediately.
 				 */
-				cnText_Domain::create( 'connections-business-directory-anniversary-and-birthday-emails' )->load();
+				cnText_Domain::register(
+					'connections-business-directory-anniversary-and-birthday-emails',
+					$self->basename,
+					'load'
+				);
 
 				$self->addCronEvents();
 			}
@@ -1105,7 +1109,7 @@ HEREDOC;
 				<li><code>%fullname%</code> — Will be replaced with the entry's full name.</li>
 				<li><code>%firstname%</code> — Will be replaced with the entry's first name.</li>
 				<li><code>%lastname%</code> — Will be replaced with the entry's last name.</li>
-				<li><code>%unsubscribe%</code> — Will be replaced with the unsubscibe link.</li>
+				<li><code>%unsubscribe%</code> — Will be replaced with the unsubscribe link.</li>
 			</ul>
 			<?php
 		}

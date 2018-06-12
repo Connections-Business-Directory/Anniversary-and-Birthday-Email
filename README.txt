@@ -5,7 +5,7 @@ Tags: business directory, anniversary, birthday, email
 Requires at least: 4.4
 Tested up to: 4.9
 Requires PHP: 5.3
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,10 +104,19 @@ None yet...
 
 == Changelog ==
 
+= 1.0.1 06/12/2018 =
+* TWEAK: Use `cnText_Domain::register()` to load the translation text domain.
+* OTHER: Corrected misspelling.
+* I18N: Add the POT file.
+
 = 1.0 02/20/2018 =
 * Initial release.
 
 == Upgrade Notice ==
 
 = 1.0 =
-Initial release.
+= 8.21 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
+
+= 1.0.1 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
