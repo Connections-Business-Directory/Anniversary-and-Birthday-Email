@@ -903,6 +903,11 @@ HEREDOC;
 				return FALSE;
 			}
 
+			$self->log( 'From:' );
+			$self->log( $from['email'] );
+			$self->log( 'To:' );
+			$self->log( $to );
+
 			$email = new cnEmail();
 
 			// Set email to be sent as HTML.
