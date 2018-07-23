@@ -918,6 +918,17 @@ HEREDOC;
 				$from['name']
 			);
 
+			/*
+			 * Set Reply-To header for compatibility w/ Easy WP SMTP and Ultimate Branding.
+			 * @link https://connections-pro.com/support/topic/from-email-2/#post-467625
+			 *
+			 * If Reply-To header is not supplied, these plugins will use the From Email Address
+			 * value from their user configuration settings.
+			 */
+			$email->header(
+				sprintf( 'Reply-To: %1$s <%2$s>', $from['name'], $from['email'] )
+			);
+
 			// Set to whom.
 			$email->to(
 				$to,
@@ -986,9 +997,23 @@ HEREDOC;
 			// Set email to be sent as HTML.
 			$email->html();
 
+			$fromName  = get_bloginfo( 'admin_email' );
+			$fromEmail = get_bloginfo( 'name' );
+
 			$email->from(
-				get_bloginfo( 'admin_email' ),
-				get_bloginfo( 'name' )
+				$fromEmail,
+				$fromName
+			);
+
+			/*
+			 * Set Reply-To header for compatibility w/ Easy WP SMTP and Ultimate Branding.
+			 * @link https://connections-pro.com/support/topic/from-email-2/#post-467625
+			 *
+			 * If Reply-To header is not supplied, these plugins will use the From Email Address
+			 * value from their user configuration settings.
+			 */
+			$email->header(
+				sprintf( 'Reply-To: %1$s <%2$s>', $fromName, $fromEmail )
 			);
 
 			// Set to whom.
