@@ -13,7 +13,7 @@
  * Plugin Name:       Connections Business Directory Anniversary and Birthday Emails
  * Plugin URI:        https://connections-pro.com/documentation/anniversary-and-birthday-emails/
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Steven A. Zahm
  * Author URI:        http://connections-pro.com
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 
 	final class Connections_Anniversary_and_Birthday_Emails {
 
-		const VERSION = '1.0.1';
+		const VERSION = '1.0.2';
 		const LOG     = FALSE;
 
 		/**
@@ -903,6 +903,11 @@ HEREDOC;
 				return FALSE;
 			}
 
+			$self->log( 'From:' );
+			$self->log( $from['email'] );
+			$self->log( 'To:' );
+			$self->log( $to );
+
 			$email = new cnEmail();
 
 			// Set email to be sent as HTML.
@@ -911,6 +916,17 @@ HEREDOC;
 			$email->from(
 				$from['email'],
 				$from['name']
+			);
+
+			/*
+			 * Set Reply-To header for compatibility w/ Easy WP SMTP and Ultimate Branding.
+			 * @link https://connections-pro.com/support/topic/from-email-2/#post-467625
+			 *
+			 * If Reply-To header is not supplied, these plugins will use the From Email Address
+			 * value from their user configuration settings.
+			 */
+			$email->header(
+				sprintf( 'Reply-To: %1$s <%2$s>', $from['name'], $from['email'] )
 			);
 
 			// Set to whom.
@@ -981,9 +997,23 @@ HEREDOC;
 			// Set email to be sent as HTML.
 			$email->html();
 
+			$fromName  = get_bloginfo( 'admin_email' );
+			$fromEmail = get_bloginfo( 'name' );
+
 			$email->from(
-				get_bloginfo( 'admin_email' ),
-				get_bloginfo( 'name' )
+				$fromEmail,
+				$fromName
+			);
+
+			/*
+			 * Set Reply-To header for compatibility w/ Easy WP SMTP and Ultimate Branding.
+			 * @link https://connections-pro.com/support/topic/from-email-2/#post-467625
+			 *
+			 * If Reply-To header is not supplied, these plugins will use the From Email Address
+			 * value from their user configuration settings.
+			 */
+			$email->header(
+				sprintf( 'Reply-To: %1$s <%2$s>', $fromName, $fromEmail )
 			);
 
 			// Set to whom.
@@ -1079,9 +1109,14 @@ HEREDOC;
 				'%unsubscribe%',
 			);
 
+			$events = array(
+				'anniversary' => __( 'Anniversary', 'connections-business-directory-anniversary-and-birthday-emails' ),
+				'birthday'    => __( 'Birthday', 'connections-business-directory-anniversary-and-birthday-emails' ),
+			);
+
 			$replace = array(
 				get_bloginfo('name'),
-				ucwords( $type ),
+				$events[ $type ],
 				$entry->getName(),
 				$entry->getName( array( 'format' => '%first%' ) ),
 				$entry->getName( array( 'format' => '%last%' ) ),
