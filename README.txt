@@ -104,6 +104,12 @@ None yet...
 
 == Changelog ==
 
+= 1.0.2 07/23/2018 =
+* TWEAK: Set Reply-To email header for third party plugin compatibility.
+* I18N: Ensure the anniversary and birthday email tokens are translated.
+* I18N: Add Dutch (Netherlands) translation. props Age
+* DEV: Add some additional logging for use with debugging.
+
 = 1.0.1 06/12/2018 =
 * TWEAK: Use `cnText_Domain::register()` to load the translation text domain.
 * OTHER: Corrected misspelling.
@@ -115,8 +121,10 @@ None yet...
 == Upgrade Notice ==
 
 = 1.0 =
-= 8.21 =
 It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
 
 = 1.0.1 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
+
+= 1.0.2 =
 It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
