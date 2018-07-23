@@ -1109,9 +1109,14 @@ HEREDOC;
 				'%unsubscribe%',
 			);
 
+			$events = array(
+				'anniversary' => __( 'Anniversary', 'connections-business-directory-anniversary-and-birthday-emails' ),
+				'birthday'    => __( 'Birthday', 'connections-business-directory-anniversary-and-birthday-emails' ),
+			);
+
 			$replace = array(
 				get_bloginfo('name'),
-				ucwords( $type ),
+				$events[ $type ],
 				$entry->getName(),
 				$entry->getName( array( 'format' => '%first%' ) ),
 				$entry->getName( array( 'format' => '%last%' ) ),
