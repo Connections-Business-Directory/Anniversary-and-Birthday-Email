@@ -2,7 +2,7 @@
 /**
  * An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
  *
- * @package   Connections Business Directory Anniversary and Birthday Emails
+ * @package   Connections Business Directory Extension: Anniversary and Birthday Emails
  * @category  Extension
  * @author    Steven A. Zahm
  * @license   GPL-2.0+
@@ -10,10 +10,10 @@
  * @copyright 2018 Steven A. Zahm
  *
  * @wordpress-plugin
- * Plugin Name:       Connections Business Directory Anniversary and Birthday Emails
+ * Plugin Name:       Connections Business Directory Extension: Anniversary and Birthday Emails
  * Plugin URI:        https://connections-pro.com/documentation/anniversary-and-birthday-emails/
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Steven A. Zahm
  * Author URI:        http://connections-pro.com
  * License:           GPL-2.0+
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 
 	final class Connections_Anniversary_and_Birthday_Emails {
 
-		const VERSION = '1.0.2';
+		const VERSION = '1.0.3';
 		const LOG     = FALSE;
 
 		/**
@@ -43,7 +43,6 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 		 * @var Connections_Anniversary_and_Birthday_Emails
 		 */
 		private static $instance;
-
 
 		/**
 		 * @var string The absolute path this this file.
@@ -997,8 +996,8 @@ HEREDOC;
 			// Set email to be sent as HTML.
 			$email->html();
 
-			$fromName  = get_bloginfo( 'admin_email' );
-			$fromEmail = get_bloginfo( 'name' );
+			$fromName  = get_bloginfo( 'name' );
+			$fromEmail = get_bloginfo( 'admin_email' );
 
 			$email->from(
 				$fromEmail,
