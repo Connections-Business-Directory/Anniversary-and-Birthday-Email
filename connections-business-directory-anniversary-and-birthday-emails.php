@@ -2,7 +2,7 @@
 /**
  * An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
  *
- * @package   Connections Business Directory Anniversary and Birthday Emails
+ * @package   Connections Business Directory Extension: Anniversary and Birthday Emails
  * @category  Extension
  * @author    Steven A. Zahm
  * @license   GPL-2.0+
@@ -10,7 +10,7 @@
  * @copyright 2018 Steven A. Zahm
  *
  * @wordpress-plugin
- * Plugin Name:       Connections Business Directory Anniversary and Birthday Emails
+ * Plugin Name:       Connections Business Directory Extension: Anniversary and Birthday Emails
  * Plugin URI:        https://connections-pro.com/documentation/anniversary-and-birthday-emails/
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
  * Version:           1.0.2
