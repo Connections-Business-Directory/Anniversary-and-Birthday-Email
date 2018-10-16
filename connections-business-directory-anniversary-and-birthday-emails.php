@@ -44,7 +44,6 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 		 */
 		private static $instance;
 
-
 		/**
 		 * @var string The absolute path this this file.
 		 *
