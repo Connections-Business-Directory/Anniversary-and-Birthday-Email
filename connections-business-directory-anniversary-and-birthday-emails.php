@@ -996,8 +996,8 @@ HEREDOC;
 			// Set email to be sent as HTML.
 			$email->html();
 
-			$fromName  = get_bloginfo( 'admin_email' );
-			$fromEmail = get_bloginfo( 'name' );
+			$fromName  = get_bloginfo( 'name' );
+			$fromEmail = get_bloginfo( 'admin_email' );
 
 			$email->from(
 				$fromEmail,
