@@ -104,6 +104,10 @@ None yet...
 
 == Changelog ==
 
+= 1.0.3 07/23/2018 =
+* BUG: Fix issue which could prevent admin notifications from being sent.
+* I18N: Update Dutch (Netherlands) translation. props Age
+
 = 1.0.2 07/23/2018 =
 * TWEAK: Set Reply-To email header for third party plugin compatibility.
 * I18N: Ensure the anniversary and birthday email tokens are translated.
@@ -128,3 +132,6 @@ It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP
 
 = 1.0.2 =
 It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.3. PHP version >= 7.1 recommended.
+
+= 1.0.3 =
+It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.4. PHP version >= 7.1 recommended.
