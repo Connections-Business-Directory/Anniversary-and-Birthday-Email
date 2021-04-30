@@ -1322,7 +1322,7 @@ HEREDOC;
 	 * @access public
 	 * @since  1.0
 	 *
-	 * @return mixed Connections_Anniversary_and_Birthday_Emails|false
+	 * @return Connections_Anniversary_and_Birthday_Emails|false
 	 */
 	function Connections_Anniversary_and_Birthday_Emails() {
 
