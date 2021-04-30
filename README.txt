@@ -2,9 +2,9 @@
 Contributors: shazahm1@hotmail.com
 Donate link: http://connections-pro.com/
 Tags: business directory, anniversary, birthday, email
-Requires at least: 4.5.3
-Tested up to: 4.9
-Requires PHP: 5.4
+Requires at least: 5.1
+Tested up to: 5.7
+Requires PHP: 5.6.20
 Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
