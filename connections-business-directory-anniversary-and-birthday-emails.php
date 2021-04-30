@@ -2,22 +2,22 @@
 /**
  * An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
  *
- * @package   Connections Business Directory Extension: Anniversary and Birthday Emails
+ * @package   Connections Business Directory Extension - Anniversary and Birthday Emails
  * @category  Extension
  * @author    Steven A. Zahm
  * @license   GPL-2.0+
- * @link      http://connections-pro.com
- * @copyright 2018 Steven A. Zahm
+ * @link      https://connections-pro.com
+ * @copyright 2021 Steven A. Zahm
  *
  * @wordpress-plugin
- * Plugin Name:       Connections Business Directory Extension: Anniversary and Birthday Emails
+ * Plugin Name:       Connections Business Directory Extension - Anniversary and Birthday Emails
  * Plugin URI:        https://connections-pro.com/documentation/anniversary-and-birthday-emails/
  * Description:       An extension for the Connections Business Directory plugin which adds the ability to automatically send an email to entries on their anniversary or birthday.
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Steven A. Zahm
- * Author URI:        http://connections-pro.com
+ * Author URI:        https://connections-pro.com
  * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       connections-business-directory-anniversary-and-birthday-emails
  * Domain Path:       /languages
  */
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Connections_Anniversary_and_Birthday_Emails' ) ) :
 
 	final class Connections_Anniversary_and_Birthday_Emails {
 
-		const VERSION = '1.0.3';
+		const VERSION = '1.0.4';
 		const LOG     = FALSE;
 
 		/**
@@ -1272,6 +1272,10 @@ HEREDOC;
 				);
 			}
 
+			/**
+			 * @todo Might need to add a daily event which occurs at noon to remove/add the midnight
+			 *       daily event to ensure it stays at midnight thru daylight savings time changes.
+			 */
 			if ( FALSE === wp_next_scheduled( 'cn-aabe-daily-event' ) ) {
 
 				/**
@@ -1318,7 +1322,7 @@ HEREDOC;
 	 * @access public
 	 * @since  1.0
 	 *
-	 * @return mixed Connections_Anniversary_and_Birthday_Emails|false
+	 * @return Connections_Anniversary_and_Birthday_Emails|false
 	 */
 	function Connections_Anniversary_and_Birthday_Emails() {
 
@@ -1330,10 +1334,9 @@ HEREDOC;
 
 			add_action(
 				'admin_notices',
-				create_function(
-					'',
-					'echo \'<div id="message" class="error"><p><strong>ERROR:</strong> Connections must be installed and active in order use Connections Anniversary and Birthday Emails.</p></div>\';'
-				)
+				function() {
+					echo '<div id="message" class="error"><p><strong>ERROR:</strong> Connections must be installed and active in order use Connections Anniversary and Birthday Emails.</p></div>';
+				}
 			);
 
 			return FALSE;
