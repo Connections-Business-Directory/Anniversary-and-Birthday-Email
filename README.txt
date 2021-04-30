@@ -108,7 +108,10 @@ None yet...
 * TWEAK: Remove use of `create_function()`.
 * OTHER: Correct plugin naming to match current naming convention.
 * OTHER: Correct phpDoc.
+* OTHER: Update copyright year.
+* OTHER: Update `http` links to `https`.
 * DEV: Add todo.
+* DEV: Update README.txt plugin header.
 
 = 1.0.3 07/23/2018 =
 * BUG: Fix issue which could prevent admin notifications from being sent.
@@ -141,3 +144,6 @@ It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP
 
 = 1.0.3 =
 It is recommended to backup before updating. Requires WordPress >= 4.5.3 and PHP >= 5.4. PHP version >= 7.1 recommended.
+
+= 1.0.4 =
+It is recommended to backup before updating. Requires WordPress >= 5.1 and PHP >= 5.6.20 PHP version >= 7.2 recommended.
