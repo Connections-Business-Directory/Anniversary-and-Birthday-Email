@@ -1272,6 +1272,10 @@ HEREDOC;
 				);
 			}
 
+			/**
+			 * @todo Might need to add a daily event which occurs at noon to remove/add the midnight
+			 *       daily event to ensure it stays at midnight thru daylight savings time changes.
+			 */
 			if ( FALSE === wp_next_scheduled( 'cn-aabe-daily-event' ) ) {
 
 				/**
