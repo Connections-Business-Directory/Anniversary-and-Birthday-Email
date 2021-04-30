@@ -104,6 +104,12 @@ None yet...
 
 == Changelog ==
 
+= 1.0.4 04/20/2021 =
+* TWEAK: Remove use of `create_function()`.
+* OTHER: Correct plugin naming to match current naming convention.
+* OTHER: Correct phpDoc.
+* DEV: Add todo.
+
 = 1.0.3 07/23/2018 =
 * BUG: Fix issue which could prevent admin notifications from being sent.
 * I18N: Update Dutch (Netherlands) translation. props Age
